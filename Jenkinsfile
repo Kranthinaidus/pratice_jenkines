@@ -3,12 +3,6 @@ pipeline {
 
     stages {
 
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/Kranthinaidus/pratice_jenkines.git'
-            }
-        }
-
         stage('Check Node') {
             steps {
                 bat 'node -v'
