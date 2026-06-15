@@ -9,21 +9,22 @@ pipeline {
             }
         }
 
-        stage('Install Firebase CLI') {
+        stage('Check Node & Firebase') {
             steps {
-                bat 'npm install -g firebase-tools'
+                bat 'node -v'
+                bat 'firebase --version'
             }
         }
 
         stage('Deploy to Firebase') {
             steps {
-                bat 'firebase deploy --non-interactive --token $FIREBASE_TOKEN'
+                bat 'firebase deploy --non-interactive'
             }
         }
 
         stage('Message') {
             steps {
-                echo 'Deployed to Firebase successfully'
+                echo 'Successfully deployed to Firebase 🚀'
             }
         }
     }
