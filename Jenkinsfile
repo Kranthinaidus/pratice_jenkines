@@ -17,10 +17,10 @@ pipeline {
         }
 
         stage('Deploy to Firebase') {
-            steps {
-                bat 'firebase deploy --non-interactive'
-            }
-        }
+    steps {
+        bat '"C:\\Users\\user\\AppData\\Roaming\\npm\\firebase.cmd" deploy --non-interactive'
+    }
+}
 
         stage('Message') {
             steps {
