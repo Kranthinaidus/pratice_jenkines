@@ -9,18 +9,23 @@ pipeline {
             }
         }
 
-        stage('Check Node & Firebase') {
+        stage('Check Node') {
             steps {
                 bat 'node -v'
-                bat 'firebase --version'
+            }
+        }
+
+        stage('Check Firebase') {
+            steps {
+                bat '"C:\\Users\\user\\AppData\\Roaming\\npm\\firebase.cmd" --version'
             }
         }
 
         stage('Deploy to Firebase') {
-    steps {
-        bat '"C:\\Users\\user\\AppData\\Roaming\\npm\\firebase.cmd" deploy --non-interactive'
-    }
-}
+            steps {
+                bat '"C:\\Users\\user\\AppData\\Roaming\\npm\\firebase.cmd" deploy --non-interactive'
+            }
+        }
 
         stage('Message') {
             steps {
